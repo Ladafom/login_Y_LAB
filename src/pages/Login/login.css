@@ -1,0 +1,65 @@
+@import '../../assets/styles/colors.css';
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 40px;
+
+  border-radius: 20px;
+  background-color: var(--light-green);
+}
+
+.login__input {
+  width: 400px;
+  padding: 10px;
+
+  border-radius: 10px;
+  border: none;
+  background-color: var(--white);
+
+  box-sizing: border-box;
+  color: var(--dark-green);
+  font-size: 16px;
+}
+.login__input:focus {
+  outline: 2px solid var(--green);
+}
+.login__input:-webkit-autofill, .login__input:-webkit-autofill:focus{
+  background-color: var(--light-green);
+}
+
+.login__email, .login__password {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login__email > label, .login__password > label {
+  color: var(--dark-green);
+}
+.login__email > p, .login__password > p {
+  color: var(--red);
+  position: absolute;
+  bottom: -22px;
+}
+
+.login__btn:hover:enabled {
+  outline: 2px solid var(--light-green);
+}
+.login__btn:disabled {
+  color: var(--light-green);
+  cursor: auto;
+  background: var(--green);
+}
+
+.login__show-password{
+  width: 25px;
+
+  position: absolute;
+  right: 10px;
+  top: 30px;
+
+  cursor: pointer;
+}
