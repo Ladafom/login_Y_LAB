@@ -1,15 +1,20 @@
 import { RouterProvider } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./router/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { AuthContext } from "./context/context";
 
 function App() {
 
+  const [isAuthorised, setIsAuthorised] = useState(false)
   const accessToken = localStorage.getItem('token')
 
   return (
-    <>
-      <RouterProvider router={accessToken ? privateRoutes : publicRoutes} />
-    </>
+    <AuthContext.Provider value={{
+      isAuthorised,
+      setIsAuthorised,
+    }}>
+      <RouterProvider router={accessToken || isAuthorised ? privateRoutes : publicRoutes} />
+    </AuthContext.Provider>
   )
 }
 
