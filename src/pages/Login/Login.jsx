@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './login.css'
 import eye from '../../assets/images/eye.svg'
 import eyeClosed from '../../assets/images/eye_closed.svg'
 import { emailRegex } from '../../utils/validation';
-import { errorMessages } from '../../utils/errorMessages';
 import { useLogin } from '../../mock/api';
+import { AuthContext } from '../../context/context';
+import { handleValidError } from '../../utils/validation';
 
 function Login() {
 
   const navigate = useNavigate()
+  const {isAuthorised, setIsAuthorised} = useContext(AuthContext)
 
   const [isVisible, setIsVisible] = useState(false)
   const [emailValidError, setEmailValidError] = useState(null)
@@ -34,20 +36,6 @@ function Login() {
     setLogin({...login, [e.target.id]:e.target.value})
   }
 
-  function handleValidError(e){
-    if (e.target.validity.patternMismatch) {
-      setEmailValidError(errorMessages.patternMismatch)
-    } else if (e.target.validity.valueMissing) {
-      if (e.target.id === 'email'){
-        setEmailValidError(errorMessages.valueMissing)
-      } else {
-        setPasswordValidError(errorMessages.valueMissing)
-      }
-    } else if (e.target.validity.tooShort) {
-      setPasswordValidError(errorMessages.tooShort)
-    }
-  }
-
   function handleSubmit(e){
     e.preventDefault()
     localStorage.removeItem("token");
@@ -55,8 +43,7 @@ function Login() {
     useLogin(login)
     .then((res) => {
       localStorage.setItem("token", res.accessToken);
-    })
-    .then(()=>{
+      setIsAuthorised(true)
       setIsRedirecting(false)
       navigate('/logout')
     })
@@ -80,7 +67,7 @@ function Login() {
         id='email'
         pattern='[A-Za-z0-9\-_]+@[a-z0-9.\-]+\.[a-z]{2,}'
         required
-        onBlur={handleValidError}
+        onBlur={(e) => setEmailValidError(handleValidError(e))}
         onChange={handleLogin}
         value={login.email}
         />
@@ -101,7 +88,7 @@ function Login() {
           autoComplete="off"
           required
           minLength="7"
-          onBlur={handleValidError}
+          onBlur={(e) => setPasswordValidError(handleValidError(e))}
           onChange={handleLogin}
           value={login.password}
           />
