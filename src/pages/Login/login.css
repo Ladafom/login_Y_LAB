@@ -3,7 +3,7 @@
 .login {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 
   padding: 40px;
 
@@ -13,7 +13,8 @@
 
 .login__input {
   width: 400px;
-  padding: 10px;
+  padding: 10px 10px 10px 100px;
+
 
   border-radius: 10px;
   border: none;
@@ -31,20 +32,24 @@
 }
 
 .login__email, .login__password {
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
 .login__email > label, .login__password > label {
-  color: var(--dark-green);
+  color: var(--green);
+  position: absolute;
+  padding: 9px 10px;
 }
 .login__email > p, .login__password > p {
   color: var(--red);
   position: absolute;
-  bottom: -22px;
+  bottom: -24px;
+  left: 10px;
 }
 
+.login__btn {
+  margin-top: 8px;
+}
 .login__btn:hover:enabled {
   outline: 2px solid var(--light-green);
 }
@@ -52,6 +57,7 @@
   color: var(--light-green);
   cursor: auto;
   background: var(--green);
+  cursor: not-allowed;
 }
 
 .login__show-password{
@@ -59,7 +65,7 @@
 
   position: absolute;
   right: 10px;
-  top: 30px;
+  padding: 7px 0;
 
   cursor: pointer;
 }
