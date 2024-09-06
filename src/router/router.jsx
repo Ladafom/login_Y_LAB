@@ -5,11 +5,12 @@ import Logout from "../pages/Logout/Logout";
 import Login from "../pages/Login/Login";
 import Error from "../pages/Error/Error";
 
+export const baseURL = '/login_Y_LAB'
+
 const errorPath = {
   path:`${baseURL}/*`,
   element:<Error/>
 }
-export const baseURL = '/login_Y_LAB'
 
 function PublicNavigate(){
   const navigate = useNavigate()
