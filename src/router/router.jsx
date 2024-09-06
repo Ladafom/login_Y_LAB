@@ -9,31 +9,32 @@ const errorPath = {
   path:'/*',
   element:<Error/>
 }
+export const baseURL = '/login_Y_LAB'
 
 function PublicNavigate(){
   const navigate = useNavigate()
   useEffect(()=>{
-    navigate('/login')
+    navigate(`${baseURL}/login`)
   },[])
 }
 export function PrivateNavigate(){
   const navigate = useNavigate()
   useEffect(()=>{
-    navigate('/logout')
+    navigate(`${baseURL}/logout`)
   },[])
 }
 
 export const privateRoutes = createBrowserRouter([
   {
-    path:'/',
+    path:`${baseURL}/`,
     element:<PrivateNavigate/>,
   },
   {
-    path:'/logout',
+    path:`${baseURL}/logout`,
     element:<Logout/>,
   },
   {
-    path:'/login',
+    path:`${baseURL}/login`,
     element:<Login/>,
   },
   errorPath,
@@ -41,15 +42,15 @@ export const privateRoutes = createBrowserRouter([
 
 export const publicRoutes = createBrowserRouter([
   {
-    path:'/',
+    path:`${baseURL}/`,
     element:<PublicNavigate/>,
   },
   {
-    path:'/login',
+    path:`${baseURL}/login`,
     element:<Login/>,
   },
   {
-    path:'/logout',
+    path:`${baseURL}/logout`,
     element:<PublicNavigate/>,
   },
   errorPath,

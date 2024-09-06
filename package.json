@@ -3,11 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "/login_Y_LAB/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-localhost": "PUBLIC_URL=/ vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "PUBLIC_URL=/ npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "crypto-js": "^4.2.0",

@@ -8,6 +8,7 @@ import { emailRegex } from '../../utils/validation';
 import { useLogin } from '../../mock/api';
 import { AuthContext } from '../../context/context';
 import { handleValidError } from '../../utils/validation';
+import { baseURL } from '../../router/router';
 
 function Login() {
 
@@ -45,7 +46,7 @@ function Login() {
       localStorage.setItem("token", res.accessToken);
       setIsAuthorised(true)
       setIsRedirecting(false)
-      navigate('/logout')
+      navigate(`${baseURL}/logout`)
     })
   }
 
