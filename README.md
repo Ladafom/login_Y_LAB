@@ -1,8 +1,23 @@
-# React + Vite
+# Y_LAB Вводное задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект настраивался с помощью Vite
 
-Currently, two official plugins are available:
+# GH Pages
+[https://ladafom.github.io/login_Y_LAB](https://ladafom.github.io/login_Y_LAB)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Внимание! Имеется баг:
+Получилось запустить gh pages только с багом: при обновлении страницы и манипуляциях с url вручную github выдает 404 и приложение ломается.
+( Чтобы вернуть приложение в исходное состояние, нужно стереть путь до https://ladafom.github.io/login_Y_LAB ).
+Однако основной функционал приложения сохранился.
+Полноценно приложение работает только, если запустить его на локальном сервере.
+
+# Запуск проекта
+
+Установка зависимостей:
+```
+npm install
+```
+Запуск на локальном сервере:
+```
+npm run dev
+```
