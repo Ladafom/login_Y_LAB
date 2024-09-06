@@ -6,15 +6,16 @@
   gap: 40px;
 
   padding: 40px;
+  margin: 40px;
 
   border-radius: 20px;
   background-color: var(--light-green);
 }
 
 .login__input {
-  width: 400px;
-  padding: 10px 10px 10px 100px;
-
+  width: 100%;
+  min-width: 400px;
+  padding: 10px 40px 10px 100px;
 
   border-radius: 10px;
   border: none;
@@ -68,4 +69,33 @@
   padding: 7px 0;
 
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .login__input{
+    min-width: 300px;
+  }
+}
+@media (max-width: 480px) {
+  .login{
+    padding: 20px;
+    margin: 20px;
+  }
+  .login__btn {
+    margin-top: 0;
+  }
+}
+@media (max-width: 380px) {
+  .login__input{
+    min-width: 250px;
+    padding: 10px 40px 10px 80px;
+    font-size: 14px;
+  }
+  .login__email > label, .login__password > label {
+    font-size: 14px;
+  }
+  .login__show-password{
+    transform: scale(0.85);
+    padding: 6px 0;
+  }
 }
