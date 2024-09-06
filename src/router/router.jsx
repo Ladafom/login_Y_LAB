@@ -6,7 +6,7 @@ import Login from "../pages/Login/Login";
 import Error from "../pages/Error/Error";
 
 const errorPath = {
-  path:'/*',
+  path:`${baseURL}/`,
   element:<Error/>
 }
 export const baseURL = '/login_Y_LAB'
